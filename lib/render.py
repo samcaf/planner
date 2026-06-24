@@ -1,7 +1,21 @@
 from datetime import datetime
+import re
+
 import html
 
 from lib.parser import parse_pln
+
+
+EXTERNAL_LINK = re.compile(r"\[(.*?)\]\((https?://[^\s]+)\)")
+DAY_LINK = re.compile(r"\[day:([0-9]{4}-[0-9]{2}-[0-9]{2})\]")
+
+SYMBOLS = {
+    "todo": "",
+    "done": "✓",
+    "moved": "M",
+    "maybe": "?",
+    "cancelled": "✕",
+}
 
 
 def render(blocks, date_str):
@@ -60,14 +74,6 @@ def render_project(b):
 """
 
 
-SYMBOLS = {
-    "todo": "",
-    "done": "✓",
-    "moved": "M",
-    "maybe": "?",
-    "cancelled": "✕",
-}
-
 def format_item(item):
     symbol = SYMBOLS.get(item.state, None)
 
@@ -86,7 +92,7 @@ def format_item(item):
        return f"""
     <div class="task">
         <span class="note">
-            {html.escape(item.text)}
+            {render_links(item.text)}
         </span>
     </div>
     """
@@ -98,7 +104,7 @@ def format_item(item):
         </div>
 
         <span class="task-text">
-            {html.escape(item.text)}
+            {render_links(item.text)}
         </span>
     </div>
     """
@@ -123,3 +129,20 @@ def render_note(b):
 {" ".join(b.content)}
 </div>
 """
+
+def render_links(text: str) -> str:
+    escaped = html.escape(text)
+
+    # external links
+    escaped = EXTERNAL_LINK.sub(
+        r'<a href="\2" target="_blank">\1</a>',
+        escaped
+    )
+
+    # internal day links
+    escaped = DAY_LINK.sub(
+        r'<a href="days/\1.html" class="internal-day">\1</a>',
+        escaped
+    )
+
+    return escaped

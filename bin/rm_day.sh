@@ -38,7 +38,7 @@ MONTH=$(date -d "$TARGET_DATE" +%m)
 DAY=$(date -d "$TARGET_DATE" +%d)
 
 DIR="data/$YEAR/$MONTH"
-FILE="$DIR/$DAY.pln"
+FILE="$DIR/$YEAR-$MONTH-$DAY.pln"
 
 if $FORCE; then
     rm -f "$FILE";

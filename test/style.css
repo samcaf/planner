@@ -74,6 +74,27 @@ body {
     gap: 1.2rem;
 }
 
+
+/* links */
+a {
+    color: #7dd3fc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+.internal-day {
+    font-weight: 600;
+    color: #a7f3d0;
+}
+.internal-day.hover {
+    text-decoration: underline;
+    transform: translateY(-2px);
+}
+
+
 /* card system */
 .card {
     background: var(--panel);

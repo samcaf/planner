@@ -4,7 +4,7 @@ let g:planner_root = fnamemodify(resolve(expand("<sfile>:p")), ":h")
 autocmd BufRead,BufNewFile *.pln setfiletype pln
 
 " re-build: create new html associated with the current file when saved
-autocmd BufWritePost *.pln !bash bin/build.sh
+" autocmd BufWritePost *.pln !bash bin/build.sh
 
 " allowing local .vim
 set runtimepath^=./.vim

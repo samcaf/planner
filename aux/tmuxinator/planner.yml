@@ -16,8 +16,8 @@ windows:
       layout: main-horizontal
       panes:
         # Open page with dashboard
-        - xdg-open http://localhost:8000/dashboard.html
+        - xdg-open http://localhost:8000/build/dashboard.html
         # rebuild dashboard continuously
-        - watch -n 2 python3 planner/build_dashboard.py
+        - watch -n 2 python3 -m build.dashboard
         # Set up local server
         - python3 -m http.server 8000
