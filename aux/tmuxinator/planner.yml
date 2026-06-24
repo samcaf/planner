@@ -1,0 +1,23 @@
+# /Users/sam/.config/tmuxinator/planner.yml
+
+name: planner
+root: ~/Documents/planner
+
+windows:
+  - today:
+      panes:
+        - ./bin/make_day.sh
+
+  - tomorrow:
+      panes:
+        - ./bin/make_day.sh +1
+
+  - dashboard:
+      layout: main-horizontal
+      panes:
+        # Open page with dashboard
+        - xdg-open http://localhost:8000/dashboard.html
+        # rebuild dashboard continuously
+        - watch -n 2 python3 planner/build_dashboard.py
+        # Set up local server
+        - python3 -m http.server 8000

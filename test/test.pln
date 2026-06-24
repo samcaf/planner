@@ -1,0 +1,30 @@
+@title additional test text
+
+@project Morning color=yellow
+- [ ] Teeth/face @short
+- [ ] Pushups @med
+- [ ] Morning pages @long
+- [ ] Eat that gorgeous @long
+
+@project Work - Research color=blue
+- [ ] Send email @short
+@sep
+@gap @short
+- [M] Read paper @med
+test med @med
+- [?] Implement optimizer @long
+- [x] Send email @short
+@sep @large @long
+- [~] Debug edge case @long
+
+@list Shopping
+- [ ] Milk
+- [ ] Eggs
+
+@note
+This is a test note. If this breaks, we already learned something important.
+
+@project Evening color=silver
+- [ ] Teeth/face @short
+
+@end

@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Generated dashboard
+build/*.html
+
+# Local planner data
+data/*
+
+# OS junk
+.DS_Store
+Thumbs.db

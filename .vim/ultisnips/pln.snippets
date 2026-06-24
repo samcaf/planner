@@ -1,0 +1,30 @@
+snippet project "project block" b
+@project ${1:name} color=${2:blue}
+$0
+endsnippet
+
+snippet task "planner task" b
+- [ ] ${1:text} @${2:short}
+$0
+endsnippet
+
+snippet list "list block" b
+@list ${1:name}
+$0
+endsnippet
+
+snippet note "note block" b
+@note
+${1:text}
+$0
+endsnippet
+
+snippet gap "layout gap" b
+@gap @${1:short}
+$0
+endsnippet
+
+snippet sep "separator" b
+@sep @${1:short}
+$0
+endsnippet
