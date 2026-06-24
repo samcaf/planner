@@ -1,7 +1,7 @@
 :root {
     --bg: #0b0f17;
     --panel: rgba(255, 255, 255, 0.04);
-    --panel-strong: rgba(255, 255, 255, 0.06);
+    --panel-strong: rgba(255, 255, 255, 0.03);
     --panel-stronger: rgba(255, 255, 255, 0.1);
     --text: #e7eefc;
     --muted: rgba(231, 238, 252, 0.65);
@@ -77,12 +77,12 @@ body {
 
 /* links */
 a {
-    color: #7dd3fc;
+    color: #00c0ff;
     text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
-    transform: translateY(-2px);
+    text-decoration: underline 2px;
+    font-weight: 800;
 }
 
 .internal-day {
@@ -114,15 +114,48 @@ a:hover {
 
 .card:hover {
     transform: translateY(-2px);
-    background: var(--panel-strong);
+    background: color-mix(in srgb, var(--card-color),
+                           var(--panel-strong) 95%);
 }
 
 .card h2 {
-    margin: 0 0 0.9rem 0;
-    font-size: 1rem;
+    margin: 0 0 0.9rem 1.5rem;
+    font-size: 16pt;
     font-weight: 600;
-    color: var(--text);
+    color: color-mix(in srgb, var(--card-color), var(--text) 40%);
 }
+
+
+/* card colors */
+.card.blue  {
+    --card-color: var(--blue);
+}
+
+.card.green {
+    --card-color: var(--green);
+}
+
+.card.purple {
+    --card-color: var(--purple);
+}
+
+
+.card.yellow  {
+    --card-color: var(--yellow);
+}
+
+.card.orange  {
+    --card-color: var(--orange);
+}
+
+.card.silver {
+    --card-color: var(--silver);
+}
+
+.card.gray {
+    --card-color: var(--gray);
+}
+
 
 /* 3-column layout */
 .columns {
@@ -150,6 +183,7 @@ a:hover {
 .task:hover {
     transform: translateY(-2px);
     background: var(--panel-strong);
+    color: color-mix(in srgb, var(--card-color), var(--text) 70%);
 }
 
 
@@ -191,9 +225,12 @@ a:hover {
     color: #9aa79d;
 }
 .done .box {
-    background: #7f9b86;
+    background: #182018;
+    color: #509f56;
     border-color: #7f9b86;
-    color: #182018;
+
+    font-weight: 1000;
+    font-size: 16pt;
 }
 
 /* maybe */
@@ -204,6 +241,9 @@ a:hover {
     background: rgba(59, 130, 246, 0.15);
     color: #60a5fa;
     border: 1px solid #60a5fa;
+
+    font-weight: 800;
+    font-size: 14pt;
 }
 
 /* moved */
@@ -213,8 +253,10 @@ a:hover {
 .moved .box {
     background: rgba(160, 120, 60, 0.15);
     border: 1px solid rgba(160, 120, 60, 0.45);
-
     color: #b89b72;
+
+    font-weight: 1000;
+    font-size: 12pt;
 }
 
 /* cancelled */
@@ -227,15 +269,17 @@ a:hover {
 .cancelled .box {
     background: rgba(239, 60, 40, 0.16);
     border: 1px solid rgba(239, 50, 50, 0.4);
-
-    /* color: #b38b8b; */
     color: #ef4444;
-}
 
+    font-weight: 1000;
+    font-size: 15pt;
+}
 
 .box:hover {
-    background: var(--panel-stronger);
+    background: color-mix(in srgb, var(--card-color),
+                           var(--panel-stronger) 90%);
 }
+
 
 
 /* gaps and separators */

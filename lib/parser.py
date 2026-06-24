@@ -45,9 +45,13 @@ def parse_pln(text: str):
             blocks.append(current)
 
         elif line.startswith("@project"):
+            title = ""
+            color = "gray"
+
             m = re.match(r"@project\s+(.*?)(\s+color=(\w+))?$", line)
-            title = m.group(1)
-            color = m.group(3) or "gray"
+            if m is not None:
+                title = m.group(1)
+                color = m.group(3) or "gray"
 
             current = Block(kind="project", title=title, color=color)
             blocks.append(current)
